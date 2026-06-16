@@ -1,0 +1,651 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap');
+      
+      text {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      }
+      
+      .card {
+        cursor: pointer;
+      }
+      
+      .card rect {
+        transition: stroke 0.2s ease, stroke-width 0.2s ease, fill 0.2s ease;
+      }
+      
+      .card:hover rect {
+        stroke: #3b82f6 !important;
+        stroke-width: 2px !important;
+      }
+      
+      .conn-line {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      
+      .legend-item {
+        font-size: 12px;
+        font-weight: 500;
+        fill: #334155;
+      }
+    </style>
+    
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="1" opacity="0.4"/>
+    </pattern>
+    
+    <!-- Soft Shadows -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+    <filter id="card-shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.04" />
+    </filter>
+    
+    <!-- Arrowheads -->
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#3b82f6" />
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#a855f7" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b" />
+    </marker>
+    
+    <!-- Technology Logos -->
+    <!-- React Logo -->
+    <g id="logo-react">
+      <circle cx="20" cy="20" r="20" fill="#f0f9ff" stroke="#e0f2fe" stroke-width="1"/>
+      <g transform="translate(20, 20) scale(0.65)" stroke="#0ea5e9" stroke-width="2" fill="none">
+        <ellipse rx="16" ry="6" transform="rotate(0)" />
+        <ellipse rx="16" ry="6" transform="rotate(60)" />
+        <ellipse rx="16" ry="6" transform="rotate(120)" />
+        <circle r="3" fill="#0ea5e9" stroke="none" />
+      </g>
+    </g>
+    
+    <!-- Spring Boot Logo -->
+    <g id="logo-springboot">
+      <circle cx="20" cy="20" r="20" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1"/>
+      <g transform="translate(10.5, 9.5) scale(0.48)">
+        <path d="M20,5 C10,12 8,25 15,35 C17,38 20,40 23,40 C27,40 29,36 31,32 C33,36 35,40 39,40 C44,40 47,37 48,32 C49,23 46,10 36,5 C30,1 25,1 20,5 Z" fill="#6db33f"/>
+        <path d="M20,5 C18,12 10,25 23,40 Z" fill="#5ea232" opacity="0.3"/>
+        <path d="M20,8 L20,38" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M20,15 Q14,21 12,24" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M20,23 Q27,29 29,32" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+    
+    <!-- MySQL Logo -->
+    <g id="logo-mysql">
+      <circle cx="20" cy="20" r="20" fill="#f0f9ff" stroke="#e0f2fe" stroke-width="1"/>
+      <g transform="translate(12.5, 10.5) scale(0.36)">
+        <path d="M 4 8 C 4 3.58 12.95 0 24 0 C 35.05 0 44 3.58 44 8 L 44 14 C 44 18.42 35.05 22 24 22 C 12.95 22 4 18.42 4 14 Z" fill="#00758f"/>
+        <ellipse cx="24" cy="8" rx="20" ry="6" fill="#0091b5"/>
+        <path d="M 4 20 C 4 15.58 12.95 12 24 12 C 35.05 12 44 15.58 44 20 L 44 26 C 44 30.42 35.05 34 24 34 C 12.95 34 4 30.42 4 26 Z" fill="#006075"/>
+        <ellipse cx="24" cy="20" rx="20" ry="6" fill="#00758f"/>
+        <path d="M 4 32 C 4 27.58 12.95 24 24 24 C 35.05 24 44 27.58 44 32 L 44 38 C 44 42.42 35.05 46 24 46 C 12.95 46 4 42.42 4 38 Z" fill="#004757"/>
+        <ellipse cx="24" cy="32" rx="20" ry="6" fill="#006075"/>
+      </g>
+    </g>
+    
+    <!-- MongoDB Logo -->
+    <g id="logo-mongodb">
+      <circle cx="20" cy="20" r="20" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1"/>
+      <g transform="translate(12, 9.5) scale(0.38)">
+        <path d="M19.5,2 C15,9.5 13,16.5 13,23.5 C13,32.5 19.5,37 19.5,37 C19.5,37 26,32.5 26,23.5 C26,16.5 24,9.5 19.5,2 Z" fill="#13aa52"/>
+        <path d="M19.5,2 C17.5,9.5 13,16.5 19.5,37 Z" fill="#118d43" opacity="0.3"/>
+        <path d="M19.5,6 L19.5,34" stroke="#3fa049" stroke-width="2"/>
+      </g>
+    </g>
+    
+    <!-- Eureka Radar -->
+    <g id="logo-eureka">
+      <circle cx="20" cy="20" r="20" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1"/>
+      <g transform="translate(20, 20)">
+        <circle cx="0" cy="0" r="3" fill="#a855f7"/>
+        <circle cx="0" cy="0" r="7" fill="none" stroke="#a855f7" stroke-width="1.2" stroke-dasharray="1.5 1.5"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.7"/>
+        <line x1="0" y1="0" x2="8" y2="-8" stroke="#a855f7" stroke-width="1"/>
+        <line x1="0" y1="0" x2="-6" y2="10" stroke="#a855f7" stroke-width="1"/>
+        <line x1="0" y1="0" x2="-10" y2="-6" stroke="#a855f7" stroke-width="1"/>
+        <circle cx="8" cy="-8" r="2.2" fill="#d946ef"/>
+        <circle cx="-6" cy="10" r="2.2" fill="#d946ef"/>
+        <circle cx="-10" cy="-6" r="2.2" fill="#d946ef"/>
+      </g>
+    </g>
+    
+    <!-- API Gateway Router -->
+    <g id="logo-gateway">
+      <circle cx="20" cy="20" r="20" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1"/>
+      <g transform="translate(10.5, 10.5) scale(0.48)" stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="6" width="28" height="28" rx="6" fill="#fdf4ff"/>
+        <path d="M 6 20 L 16 20" fill="none"/>
+        <path d="M 12 16 L 16 20 L 12 24" fill="none"/>
+        <path d="M 22 14 L 34 14" stroke-width="2.5" fill="none"/>
+        <path d="M 22 20 L 34 20" stroke-width="2.5" fill="none"/>
+        <path d="M 22 26 L 34 26" stroke-width="2.5" fill="none"/>
+        <circle cx="19" cy="20" r="2.5" fill="#a855f7" stroke="none"/>
+      </g>
+    </g>
+    
+    <!-- Vite Logo -->
+    <g id="logo-vite">
+      <polygon points="8,3 16,15 4,15" fill="#bd34fe" />
+      <polygon points="11,1 7,9 10,9 9,16 15,7 12,7" fill="#ffd815" />
+    </g>
+  </defs>
+  
+  <!-- Grid Background -->
+  <rect width="1600" height="900" fill="#f8fafc" />
+  <rect width="1600" height="900" fill="url(#grid)" />
+  
+  <!-- TITLE BLOCK -->
+  <g transform="translate(50, 55)">
+    <text x="0" y="0" font-size="26px" font-weight="800" fill="#0f172a">StudEnroll System Architecture</text>
+    <text x="0" y="24" font-size="14px" font-weight="500" fill="#64748b">Spring Cloud Microservices &amp; React Widescreen Deployment Diagram</text>
+  </g>
+  
+  <!-- ================= GROUP CONTAINERS ================= -->
+  
+  <!-- 1. Frontend Layer -->
+  <g transform="translate(50, 110)">
+    <rect width="280" height="680" rx="16" fill="#f0f7ff" stroke="#dbeafe" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="20" y="20" width="130" height="22" rx="11" fill="#dbeafe"/>
+    <text x="30" y="35" font-size="11px" font-weight="700" fill="#1e40af" letter-spacing="0.05em">FRONTEND LAYER</text>
+  </g>
+  
+  <!-- 2. Infrastructure Routing Layer -->
+  <g transform="translate(410, 110)">
+    <rect width="280" height="680" rx="16" fill="#faf5ff" stroke="#f3e8ff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="20" y="20" width="165" height="22" rx="11" fill="#f3e8ff"/>
+    <text x="30" y="35" font-size="11px" font-weight="700" fill="#6b21a8" letter-spacing="0.05em">INFRASTRUCTURE LAYER</text>
+  </g>
+  
+  <!-- 3. Core Microservices Layer -->
+  <g transform="translate(790, 110)">
+    <rect width="320" height="680" rx="16" fill="#f0fdf4" stroke="#dcfce7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="20" y="20" width="160" height="22" rx="11" fill="#dcfce7"/>
+    <text x="30" y="35" font-size="11px" font-weight="700" fill="#15803d" letter-spacing="0.05em">MICROSERVICES LAYER</text>
+  </g>
+  
+  <!-- 4. Data Stores Layer -->
+  <g transform="translate(1210, 110)">
+    <rect width="340" height="680" rx="16" fill="#fffbeb" stroke="#fef08a" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="20" y="20" width="140" height="22" rx="11" fill="#fef9c3"/>
+    <text x="30" y="35" font-size="11px" font-weight="700" fill="#854d0e" letter-spacing="0.05em">DATA STORES LAYER</text>
+  </g>
+  
+  <!-- ================= COMPONENTS ================= -->
+  
+  <!-- FRONTEND LAYER COMPONENTS -->
+  
+  <!-- Web Browser Mockup -->
+  <g transform="translate(80, 170)" class="card">
+    <rect width="240" height="140" rx="10" ry="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <path d="M 0,8 A 8,8 0 0 1 8,0 L 232,0 A 8,8 0 0 1 240,8 L 240,24 L 0,24 Z" fill="#e2e8f0"/>
+    <circle cx="12" cy="12" r="3" fill="#ef4444"/>
+    <circle cx="20" cy="12" r="3" fill="#f59e0b"/>
+    <circle cx="28" cy="12" r="3" fill="#10b981"/>
+    <rect x="42" y="5" width="188" height="14" rx="4" ry="4" fill="#ffffff"/>
+    <text x="48" y="15" font-size="9px" fill="#64748b" font-weight="500">http://localhost:5173</text>
+    
+    <rect x="10" y="34" width="220" height="96" rx="4" ry="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="10" y="34" width="220" height="15" rx="2" ry="2" fill="#eff6ff"/>
+    <text x="16" y="44" font-size="7.5px" font-weight="bold" fill="#2563eb">StudEnroll Portal</text>
+    
+    <rect x="16" y="58" width="60" height="64" rx="3" ry="3" fill="#ffffff" stroke="#bfdbfe" stroke-width="0.8"/>
+    <text x="20" y="67" font-size="6px" font-weight="bold" fill="#1e3a8a">Students</text>
+    <line x1="20" y1="76" x2="70" y2="76" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="20" y1="84" x2="60" y2="84" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="20" y1="92" x2="65" y2="92" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="20" y="100" width="25" height="6" rx="1.5" fill="#3b82f6"/>
+    
+    <rect x="90" y="58" width="60" height="64" rx="3" ry="3" fill="#ffffff" stroke="#bbf7d0" stroke-width="0.8"/>
+    <text x="94" y="67" font-size="6px" font-weight="bold" fill="#064e3b">Courses</text>
+    <line x1="94" y1="76" x2="144" y2="76" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="94" y1="84" x2="134" y2="84" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="94" y1="92" x2="139" y2="92" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="94" y="100" width="25" height="6" rx="1.5" fill="#10b981"/>
+
+    <rect x="164" y="58" width="60" height="64" rx="3" ry="3" fill="#ffffff" stroke="#fef08a" stroke-width="0.8"/>
+    <text x="168" y="67" font-size="6px" font-weight="bold" fill="#78350f">Enrollments</text>
+    <line x1="168" y1="76" x2="218" y2="76" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="168" y1="84" x2="208" y2="84" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="168" y1="92" x2="213" y2="92" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="168" y="100" width="25" height="6" rx="1.5" fill="#f59e0b"/>
+  </g>
+  
+  <!-- React App Card -->
+  <g transform="translate(80, 390)" class="card">
+    <rect width="240" height="210" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,210 A 12,12 0 0 1 0,198 Z" fill="#3b82f6"/>
+    
+    <use href="#logo-react" x="185" y="12"/>
+    <use href="#logo-vite" x="162" y="13" width="16" height="16"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">studenroll-frontend</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#3b82f6" letter-spacing="0.05em">VITE + REACT CLIENT SPA</text>
+    
+    <!-- Nested Internal Architecture Diagram -->
+    <rect x="25" y="65" width="190" height="28" rx="5" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1" />
+    <text x="120" y="82" font-size="9px" font-weight="700" fill="#0369a1" text-anchor="middle">React UI Views &amp; Components</text>
+    <path d="M 120,93 L 120,103" fill="none" stroke="#3b82f6" stroke-width="1" marker-end="url(#arrow-blue)" />
+    
+    <rect x="25" y="104" width="190" height="28" rx="5" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1" />
+    <text x="120" y="121" font-size="9px" font-weight="700" fill="#0369a1" text-anchor="middle">React State Hooks &amp; State</text>
+    <path d="M 120,132 L 120,142" fill="none" stroke="#3b82f6" stroke-width="1" marker-end="url(#arrow-blue)" />
+    
+    <rect x="25" y="143" width="190" height="28" rx="5" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1" />
+    <text x="120" y="160" font-size="9px" font-weight="700" fill="#0369a1" text-anchor="middle">Axios HTTP Request Client</text>
+    
+    <rect x="25" y="180" width="85" height="18" rx="5" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+    <text x="32" y="192" font-size="9px" font-weight="700" fill="#1e40af">Port: 5173 (Dev)</text>
+  </g>
+  
+  <!-- INFRASTRUCTURE LAYER COMPONENTS -->
+  
+  <!-- Eureka Discovery Server -->
+  <g transform="translate(440, 170)" class="card">
+    <rect width="240" height="195" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,195 A 12,12 0 0 1 0,183 Z" fill="#a855f7"/>
+    
+    <use href="#logo-eureka" x="185" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">eureka-server</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#a855f7" letter-spacing="0.05em">NETFLIX SERVICE REGISTRY</text>
+    
+    <!-- Nested Internal Architecture Diagram -->
+    <rect x="25" y="65" width="190" height="26" rx="5" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1" />
+    <text x="120" y="81" font-size="9px" font-weight="700" fill="#581c87" text-anchor="middle">Service Registry (Dynamic Map)</text>
+    <path d="M 120,91 L 120,101" fill="none" stroke="#a855f7" stroke-width="1" marker-end="url(#arrow-purple)" />
+    
+    <rect x="25" y="102" width="190" height="26" rx="5" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1" />
+    <text x="120" y="118" font-size="9px" font-weight="700" fill="#581c87" text-anchor="middle">Heartbeat Health Monitor</text>
+    <path d="M 120,128 L 120,138" fill="none" stroke="#a855f7" stroke-width="1" marker-end="url(#arrow-purple)" />
+    
+    <rect x="25" y="139" width="190" height="26" rx="5" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1" />
+    <text x="120" y="155" font-size="9px" font-weight="700" fill="#581c87" text-anchor="middle">Dead Instance Cleanup Manager</text>
+    
+    <rect x="25" y="170" width="80" height="18" rx="5" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1"/>
+    <text x="32" y="182" font-size="9px" font-weight="700" fill="#6b21a8">Port: 8761</text>
+  </g>
+  
+  <!-- API Gateway -->
+  <g transform="translate(440, 400)" class="card">
+    <rect width="240" height="210" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,210 A 12,12 0 0 1 0,198 Z" fill="#a855f7"/>
+    
+    <use href="#logo-gateway" x="185" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">api-gateway</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#a855f7" letter-spacing="0.05em">SPRING CLOUD API GATEWAY</text>
+    
+    <!-- Nested Internal Architecture Diagram -->
+    <rect x="25" y="65" width="190" height="28" rx="5" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1" />
+    <text x="120" y="82" font-size="9px" font-weight="700" fill="#581c87" text-anchor="middle">Request Router (Entry Gateway)</text>
+    <path d="M 120,93 L 120,103" fill="none" stroke="#a855f7" stroke-width="1" marker-end="url(#arrow-purple)" />
+    
+    <rect x="25" y="104" width="190" height="28" rx="5" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1" />
+    <text x="120" y="121" font-size="9px" font-weight="700" fill="#581c87" text-anchor="middle">Predicate Filters &amp; CORS Check</text>
+    <path d="M 120,132 L 120,142" fill="none" stroke="#a855f7" stroke-width="1" marker-end="url(#arrow-purple)" />
+    
+    <rect x="25" y="143" width="190" height="28" rx="5" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1" />
+    <text x="120" y="160" font-size="9px" font-weight="700" fill="#581c87" text-anchor="middle">Load Balancer (lb:// Target Router)</text>
+    
+    <rect x="25" y="180" width="80" height="18" rx="5" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1"/>
+    <text x="32" y="192" font-size="9px" font-weight="700" fill="#6b21a8">Port: 8060</text>
+  </g>
+  
+  <!-- MICROSERVICES LAYER COMPONENTS -->
+  
+  <!-- Student Service -->
+  <g transform="translate(840, 155)" class="card">
+    <rect width="240" height="150" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,150 A 12,12 0 0 1 0,138 Z" fill="#10b981"/>
+    
+    <use href="#logo-springboot" x="185" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">student-service</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#059669" letter-spacing="0.05em">STUDENT PROFILE DOMAIN</text>
+    
+    <!-- Nested Internal Architecture Diagram -->
+    <rect x="25" y="65" width="190" height="26" rx="5" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="81" font-size="9px" font-weight="700" fill="#14532d" text-anchor="middle">StudentController (REST Endpoints)</text>
+    <path d="M 120,91 L 120,101" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    
+    <rect x="25" y="102" width="190" height="26" rx="5" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="118" font-size="9px" font-weight="700" fill="#14532d" text-anchor="middle">StudentRepository (JPA / Hibernate)</text>
+    
+    <rect x="25" y="130" width="80" height="13" rx="4" fill="#ecfdf5" stroke="#d1fae5" stroke-width="1"/>
+    <text x="32" y="139" font-size="8px" font-weight="700" fill="#047857">Port: 8081</text>
+  </g>
+  
+  <!-- Course Service -->
+  <g transform="translate(840, 355)" class="card">
+    <rect width="240" height="150" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,150 A 12,12 0 0 1 0,138 Z" fill="#10b981"/>
+    
+    <use href="#logo-springboot" x="185" y="12"/>
+    <use href="#logo-mongodb" x="160" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">course-service</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#059669" letter-spacing="0.05em">COURSE CATALOG DOMAIN</text>
+    
+    <!-- Nested Internal Architecture Diagram -->
+    <rect x="25" y="65" width="190" height="26" rx="5" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="81" font-size="9px" font-weight="700" fill="#14532d" text-anchor="middle">CourseController (REST Endpoints)</text>
+    <path d="M 120,91 L 120,101" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    
+    <rect x="25" y="102" width="190" height="26" rx="5" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="118" font-size="9px" font-weight="700" fill="#14532d" text-anchor="middle">CourseRepository (Spring Mongo)</text>
+    
+    <rect x="25" y="130" width="80" height="13" rx="4" fill="#ecfdf5" stroke="#d1fae5" stroke-width="1"/>
+    <text x="32" y="139" font-size="8px" font-weight="700" fill="#047857">Port: 8082</text>
+  </g>
+  
+  <!-- Enrollment Service -->
+  <g transform="translate(840, 555)" class="card">
+    <rect width="240" height="260" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,260 A 12,12 0 0 1 0,248 Z" fill="#10b981"/>
+    
+    <use href="#logo-springboot" x="185" y="12"/>
+    
+    <text x="25" y="28" font-size="14px" font-weight="700" fill="#0f172a">enrollment-service</text>
+    <text x="25" y="42" font-size="9px" font-weight="700" fill="#059669" letter-spacing="0.05em">REGISTRATION PROCESSOR</text>
+    
+    <!-- Reactive WebFlux Badge -->
+    <rect x="25" y="48" width="145" height="12" rx="3" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.5"/>
+    <text x="97.5" y="56.5" font-size="7px" font-weight="700" fill="#0369a1" text-anchor="middle">Reactive WebFlux Stack (Non-blocking)</text>
+    
+    <!-- Nested Internal Architecture Diagram -->
+    <rect x="25" y="66" width="190" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="80" font-size="8.5px" font-weight="700" fill="#14532d" text-anchor="middle">EnrollmentController (REST Endpoints)</text>
+    <path d="M 120,88 L 120,95" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    
+    <rect x="25" y="96" width="190" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="110" font-size="8.5px" font-weight="700" fill="#14532d" text-anchor="middle">EnrollmentService (Orchestrator)</text>
+    <path d="M 120,118 L 120,125" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    
+    <!-- Dedicated Feign/WebClient Classes Layer -->
+    <rect x="25" y="126" width="190" height="22" rx="4" fill="#fef3c7" stroke="#fde68a" stroke-width="1" />
+    <text x="120" y="140" font-size="7.5px" font-weight="700" fill="#78350f" text-anchor="middle">StudentClient &amp; CourseClient Wrapper</text>
+    
+    <path d="M 75,148 L 65,154" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    <path d="M 165,148 L 175,154" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    
+    <rect x="20" y="155" width="90" height="22" rx="4" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1" />
+    <text x="65" y="169" font-size="7px" font-weight="700" fill="#0369a1" text-anchor="middle">WebClient (Student API)</text>
+    
+    <rect x="130" y="155" width="90" height="22" rx="4" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1" />
+    <text x="175" y="169" font-size="7px" font-weight="700" fill="#0369a1" text-anchor="middle">WebClient (Course API)</text>
+    
+    <path d="M 65,177 L 65,182 L 120,182 L 120,187" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    <path d="M 175,177 L 175,182 L 120,182" fill="none" stroke="#10b981" stroke-width="1" />
+    
+    <rect x="25" y="188" width="190" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <text x="120" y="202" font-size="8.5px" font-weight="700" fill="#14532d" text-anchor="middle">EnrollmentRepository (JPA / MySQL)</text>
+    
+    <rect x="25" y="238" width="80" height="13" rx="4" fill="#ecfdf5" stroke="#d1fae5" stroke-width="1"/>
+    <text x="32" y="247" font-size="8px" font-weight="700" fill="#047857">Port: 8083</text>
+  </g>
+  
+  <!-- DATA STORES LAYER COMPONENTS -->
+  
+  <!-- Student Database -->
+  <g transform="translate(1260, 180)" class="card">
+    <rect width="250" height="130" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,130 A 12,12 0 0 1 0,118 Z" fill="#f59e0b"/>
+    
+    <use href="#logo-mysql" x="195" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">MySQL Database</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#d97706" letter-spacing="0.05em">RELATIONAL STORAGE</text>
+    
+    <rect x="25" y="62" width="200" height="24" rx="5" fill="#fffbeb" stroke="#fef08a" stroke-width="1" />
+    <text x="125" y="76" font-size="8.5px" font-weight="700" fill="#78350f" text-anchor="middle">HikariCP SQL Conn Pool</text>
+    <path d="M 125,86 L 125,93" fill="none" stroke="#f59e0b" stroke-width="1" marker-end="url(#arrow-orange)" />
+    
+    <rect x="25" y="94" width="200" height="24" rx="5" fill="#fffbeb" stroke="#fef08a" stroke-width="1" />
+    <text x="125" y="108" font-size="8.5px" font-weight="700" fill="#78350f" text-anchor="middle">student_db (students table)</text>
+  </g>
+  
+  <!-- Course Database -->
+  <g transform="translate(1260, 375)" class="card">
+    <rect width="250" height="130" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,130 A 12,12 0 0 1 0,118 Z" fill="#10b981"/>
+    
+    <use href="#logo-mongodb" x="195" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">MongoDB Database</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#047857" letter-spacing="0.05em">NOSQL DOCUMENT STORE</text>
+    
+    <rect x="25" y="62" width="200" height="24" rx="5" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1" />
+    <text x="125" y="76" font-size="8.5px" font-weight="700" fill="#15803d" text-anchor="middle">MongoDB Java BSON Driver</text>
+    <path d="M 125,86 L 125,93" fill="none" stroke="#10b981" stroke-width="1" marker-end="url(#arrow-green)" />
+    
+    <rect x="25" y="94" width="200" height="24" rx="5" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1" />
+    <text x="125" y="108" font-size="8.5px" font-weight="700" fill="#15803d" text-anchor="middle">course_db (courses collection)</text>
+  </g>
+  
+  <!-- Enrollment Database -->
+  <g transform="translate(1260, 570)" class="card">
+    <rect width="250" height="130" rx="12" ry="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <path d="M 0,12 A 12,12 0 0 1 12,0 L 12,130 A 12,12 0 0 1 0,118 Z" fill="#f59e0b"/>
+    
+    <use href="#logo-mysql" x="195" y="12"/>
+    
+    <text x="25" y="32" font-size="14px" font-weight="700" fill="#0f172a">MySQL Database</text>
+    <text x="25" y="50" font-size="9px" font-weight="700" fill="#d97706" letter-spacing="0.05em">RELATIONAL STORAGE</text>
+    
+    <rect x="25" y="62" width="200" height="24" rx="5" fill="#fffbeb" stroke="#fef08a" stroke-width="1" />
+    <text x="125" y="76" font-size="8.5px" font-weight="700" fill="#78350f" text-anchor="middle">HikariCP SQL Conn Pool</text>
+    <path d="M 125,86 L 125,93" fill="none" stroke="#f59e0b" stroke-width="1" marker-end="url(#arrow-orange)" />
+    
+    <rect x="25" y="94" width="200" height="24" rx="5" fill="#fffbeb" stroke="#fef08a" stroke-width="1" />
+    <text x="125" y="108" font-size="8.5px" font-weight="700" fill="#78350f" text-anchor="middle">enrollment_db (enrollments table)</text>
+  </g>
+  
+  <!-- ================= CONNECTIONS & FLOWS ================= -->
+  
+  <!-- 1. Browser Interacts with React App -->
+  <path d="M 200,310 L 200,390" fill="none" class="conn-line" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  
+  <!-- 2. React Web App calls API Gateway -->
+  <path d="M 320,495 L 440,495" fill="none" class="conn-line" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <rect x="345" y="463" width="70" height="16" rx="4" fill="#ffffff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="380" y="475" font-size="8.5px" font-weight="700" fill="#2563eb" text-anchor="middle">AXIOS REST</text>
+  
+  <!-- 3. Gateway looks up / registers with Eureka -->
+  <path d="M 560,400 L 560,365" fill="none" class="conn-line" stroke="#a855f7" stroke-width="2.5" marker-start="url(#arrow-purple)" marker-end="url(#arrow-purple)"/>
+  <text x="575" y="385" font-size="9.5px" font-weight="700" fill="#7e22ce">Route Lookup</text>
+  
+  <!-- Dashed registration client lines to Eureka Server (Registry Bus) -->
+  <!-- Student registration -->
+  <path d="M 840,220 L 680,220" fill="none" class="conn-line" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow-gray)"/>
+  <!-- Course registration -->
+  <path d="M 840,415 L 750,415 L 750,255 L 680,255" fill="none" class="conn-line" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow-gray)"/>
+  <!-- Enrollment registration -->
+  <path d="M 840,610 L 730,610 L 730,290 L 680,290" fill="none" class="conn-line" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow-gray)"/>
+  
+  <!-- 4. API Gateway Routes Requests (Clean, Spaced Routing Lanes) -->
+  <!-- Route to Student (vertical lane at x=700) -->
+  <path d="M 680,460 L 700,460 L 700,245 L 840,245" fill="none" class="conn-line" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <text x="715" y="240" font-size="9px" font-weight="700" fill="#7e22ce" text-anchor="start">/api/students/**</text>
+  
+  <!-- Route to Course (vertical lane at x=715) -->
+  <path d="M 680,495 L 715,495 L 715,440 L 840,440" fill="none" class="conn-line" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <text x="725" y="435" font-size="9px" font-weight="700" fill="#7e22ce" text-anchor="start">/api/courses/**</text>
+  
+  <!-- Route to Enrollment (vertical lane at x=730) -->
+  <path d="M 680,530 L 730,530 L 730,635 L 840,635" fill="none" class="conn-line" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+  <text x="720" y="605" font-size="9px" font-weight="700" fill="#7e22ce" text-anchor="end">/api/enrollments/**</text>
+  <text x="720" y="617" font-size="7.5px" font-weight="600" fill="#475569" text-anchor="end">Payload: EnrollmentRequest DTO</text>
+  <text x="720" y="627" font-size="7.5px" font-weight="600" fill="#475569" text-anchor="end">Return: EnrollmentResponse DTO</text>
+  
+  <!-- 5. Inter-service Reactive Calls (WebClient - Spaced Lanes) -->
+  <!-- Enrollment -> Student (vertical lane at x=805) -->
+  <path d="M 840,720 L 805,720 L 805,275 L 840,275" fill="none" class="conn-line" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <text x="798" y="480" font-size="9px" font-weight="700" fill="#0284c7" transform="rotate(-90, 798, 480)" text-anchor="middle">WEBCLIENT GET STUDENT</text>
+  
+  <!-- Enrollment -> Course (vertical lane at x=820) -->
+  <path d="M 840,700 L 820,700 L 820,475 L 840,475" fill="none" class="conn-line" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <text x="813" y="565" font-size="9px" font-weight="700" fill="#0284c7" transform="rotate(-90, 813, 565)" text-anchor="middle">WEBCLIENT GET COURSE</text>
+  
+  <!-- 6. Database Persistence Connections -->
+  <!-- Student Service -> DB -->
+  <path d="M 1080,245 L 1260,245" fill="none" class="conn-line" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+  <text x="1170" y="238" font-size="10px" font-weight="700" fill="#b45309" text-anchor="middle">JPA / JDBC / MySQL</text>
+  
+  <!-- Course Service -> DB -->
+  <path d="M 1080,440 L 1260,440" fill="none" class="conn-line" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <text x="1170" y="433" font-size="10px" font-weight="700" fill="#047857" text-anchor="middle">Spring Data MongoDB</text>
+  
+  <!-- Enrollment Service -> DB -->
+  <path d="M 1080,635 L 1260,635" fill="none" class="conn-line" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+  <text x="1170" y="628" font-size="10px" font-weight="700" fill="#b45309" text-anchor="middle">JPA / JDBC / MySQL</text>
+  
+  <!-- ================= RESPONSE FLOWS (Dashed Returning Lines) ================= -->
+  <!-- 1. Database -> Service Return -->
+  <!-- Student DB -> Student Service return -->
+  <path d="M 1260,255 L 1080,255" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+  <!-- Course DB -> Course Service return -->
+  <path d="M 1260,450 L 1080,450" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+  <!-- Enrollment DB -> Enrollment Service return -->
+  <path d="M 1260,645 L 1080,645" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+  
+  <!-- 2. Core Service -> Gateway Return -->
+  <!-- Student Service -> Gateway return -->
+  <path d="M 840,255 L 710,255 L 710,470 L 680,470" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+  <!-- Course Service -> Gateway return -->
+  <path d="M 840,450 L 722,450 L 722,505 L 680,505" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+  <!-- Enrollment Service -> Gateway return -->
+  <path d="M 840,645 L 745,645 L 745,540 L 680,540" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+
+  <!-- 3. Inter-Service WebClient Returns -->
+  <!-- Student Service -> Enrollment WebClient return -->
+  <path d="M 840,285 L 795,285 L 795,730 L 840,730" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+  <!-- Course Service -> Enrollment WebClient return -->
+  <path d="M 840,485 L 812,485 L 812,710 L 840,710" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+
+  <!-- 4. Gateway -> React App JSON Return -->
+  <path d="M 440,510 L 320,510" fill="none" class="conn-line" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-green)"/>
+
+  <!-- ================= STEP MARKERS (1-10) ================= -->
+  
+  <!-- Step 1: User Interactions (Request) -->
+  <g transform="translate(200, 350)">
+    <circle cx="0" cy="0" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">1</text>
+  </g>
+  
+  <!-- Step 2: Axios Calls (Request) -->
+  <g transform="translate(380, 495)">
+    <circle cx="0" cy="0" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">2</text>
+  </g>
+  
+  <!-- Step 3: Discovery Lookup (Request) -->
+  <g transform="translate(560, 382)">
+    <circle cx="0" cy="0" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">3</text>
+  </g>
+  
+  <!-- Step 4: Routing delegation (Request) -->
+  <g transform="translate(700, 495)">
+    <circle cx="0" cy="0" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">4</text>
+  </g>
+  
+  <!-- Step 5: WebClient Integrations (Request) -->
+  <g transform="translate(775, 565)">
+    <circle cx="0" cy="0" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">5</text>
+  </g>
+  
+  <!-- Step 6: DB Persistence (Request) -->
+  <g transform="translate(1170, 515)">
+    <circle cx="0" cy="0" r="11" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">6</text>
+  </g>
+  
+  <!-- Step 7: DB Return Data (Response) -->
+  <g transform="translate(1170, 645)">
+    <circle cx="0" cy="0" r="11" fill="#10b981" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">7</text>
+  </g>
+  
+  <!-- Step 8: Domain Response Construction (Response) -->
+  <g transform="translate(1062, 754)">
+    <circle cx="0" cy="0" r="11" fill="#10b981" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">8</text>
+  </g>
+  
+  <!-- Step 9: Service response back to gateway (Response) -->
+  <g transform="translate(745, 590)">
+    <circle cx="0" cy="0" r="11" fill="#10b981" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">9</text>
+  </g>
+  
+  <!-- Step 10: Client State updated & DOM rendered (Response) -->
+  <g transform="translate(380, 510)">
+    <circle cx="0" cy="0" r="11" fill="#10b981" stroke="#ffffff" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ffffff" font-size="11px" font-weight="700">10</text>
+  </g>
+
+  <!-- ================= LEGEND BAR ================= -->
+  <g transform="translate(50, 825)">
+    <rect width="1500" height="60" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Row 1: Request (1-6) -->
+    <g transform="translate(20, 20)">
+      <text x="0" y="2" font-size="10px" font-weight="800" fill="#1e3a8a">REQUEST PATH:</text>
+      
+      <circle cx="100" cy="-2" r="5.5" fill="#3b82f6" />
+      <text x="112" y="2" class="legend-item" font-size="10.5px">1. User UI Request Trigger</text>
+      
+      <circle cx="310" cy="-2" r="5.5" fill="#1d4ed8" />
+      <text x="322" y="2" class="legend-item" font-size="10.5px">2. Axios HTTP JSON Gateway Call</text>
+      
+      <circle cx="570" cy="-2" r="5.5" fill="#a855f7" />
+      <text x="582" y="2" class="legend-item" font-size="10.5px">3. Eureka Service Instance Lookup</text>
+      
+      <circle cx="830" cy="-2" r="5.5" fill="#7e22ce" />
+      <text x="842" y="2" class="legend-item" font-size="10.5px">4. Forwarding Gateway to Microservice</text>
+      
+      <circle cx="1090" cy="-2" r="5.5" fill="#0ea5e9" />
+      <text x="1102" y="2" class="legend-item" font-size="10.5px">5. WebClient API Verification Cross-check</text>
+      
+      <circle cx="1325" cy="-2" r="5.5" fill="#f59e0b" />
+      <text x="1337" y="2" class="legend-item" font-size="10.5px">6. SQL/NoSQL DB Persistence</text>
+    </g>
+    
+    <!-- Row 2: Response (7-10) -->
+    <g transform="translate(20, 42)">
+      <text x="0" y="2" font-size="10px" font-weight="800" fill="#065f46">RESPONSE PATH:</text>
+      
+      <circle cx="100" cy="-2" r="5.5" fill="#10b981" />
+      <text x="112" y="2" class="legend-item" font-size="10.5px">7. DB returns raw records to Service</text>
+      
+      <circle cx="380" cy="-2" r="5.5" fill="#10b981" />
+      <text x="392" y="2" class="legend-item" font-size="10.5px">8. Service packages response DTO</text>
+      
+      <circle cx="680" cy="-2" r="5.5" fill="#10b981" />
+      <text x="692" y="2" class="legend-item" font-size="10.5px">9. Final JSON payload routed back</text>
+      
+      <circle cx="980" cy="-2" r="5.5" fill="#10b981" />
+      <text x="992" y="2" class="legend-item" font-size="10.5px">10. React state updates &amp; DOM re-render</text>
+    </g>
+  </g>
+</svg>

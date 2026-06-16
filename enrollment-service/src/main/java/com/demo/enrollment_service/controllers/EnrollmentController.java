@@ -1,6 +1,7 @@
 package com.demo.enrollment_service.controllers;
 
 import com.demo.enrollment_service.dto.CourseDTO;
+import com.demo.enrollment_service.dto.EnrollmentRequest;
 import com.demo.enrollment_service.dto.EnrollmentResponseDTO;
 import com.demo.enrollment_service.dto.StudentDTO;
 import com.demo.enrollment_service.entities.Enrollment;
@@ -36,27 +37,30 @@ public class EnrollmentController {
     }
 
     @PostMapping
-    public Mono<ResponseEntity<Object>> enrollStudent(@RequestBody Enrollment enrollment) {
-        return enrollmentService.processEnrollment(enrollment)
-        		// Success
-        		.map(savedEnrollment -> ResponseEntity.status(HttpStatus.CREATED).body((Object) savedEnrollment))
-        		// Error: Capacity is full
-        		.onErrorResume(IllegalStateException.class, e -> 
-        				Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage())))
-        		// If Student or Course is missing, catch the 404
-                .onErrorResume(WebClientResponseException.class, e -> {
-                    if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
-                        return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                                .body("Enrollment failed: Student CNIE or Course ID does not exist."));
-                    }
-                    return Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                            .body("Error communicating with other services."));
-                })
-                
-                // Catch any other unexpected crashes
+    public Mono<ResponseEntity<Object>> enrollStudent(@RequestBody EnrollmentRequest request) {
+        
+        return enrollmentService.processEnrollment(request)
+                .map(savedEnrollment -> ResponseEntity.status(HttpStatus.CREATED).body((Object) savedEnrollment))
+                .onErrorResume(IllegalStateException.class, e -> 
+                    Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage())))
                 .onErrorResume(Exception.class, e ->
                     Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                            .body("An unexpected error occurred: " + e.getMessage()))
+                            .body("An error occurred: " + e.getMessage()))
                 );
+    }
+    
+    @DeleteMapping("/{id}")
+    public Mono<ResponseEntity<Object>> cancelEnrollment(@PathVariable Long id) {
+        return enrollmentService.cancelEnrollment(id)
+                // If successful, return 204 No Content
+                .then(Mono.just(ResponseEntity.noContent().build()))
+                
+                // If past 24 hours, return 400 Bad Request
+                .onErrorResume(IllegalStateException.class, e ->
+                        Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage())))
+                
+                // If ID doesn't exist, return 404 Not Found
+                .onErrorResume(IllegalArgumentException.class, e ->
+                        Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage())));
     }
 }

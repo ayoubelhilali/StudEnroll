@@ -9,6 +9,18 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: 
+                - "http://localhost:5173"
+                - "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - OPTIONS
+              allowedHeaders: "*"
       routes:
         - id: student-service
           uri: lb://STUDENT-SERVICE

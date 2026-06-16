@@ -12,7 +12,7 @@ public class Enrollment {
     private Long id;
 
     private String studentCnie;
-    private String courseId; // String to match MongoDB's ID
+    private String courseId; 
     private LocalDateTime enrollmentDate;
 
     public Enrollment() {
